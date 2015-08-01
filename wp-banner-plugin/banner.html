@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="http://basicincomeproject.org/wp-content/plugins/wp-banner-plugin/images/favicon.ico">
+
+  <title>Basic Income Banner</title>
+
+  <!-- Material Design for Bootstrap -->
+  <!--
+  <link href="css/material-wfont.min.css" rel="stylesheet">
+  <link href="css/ripples.min.css" rel="stylesheet">
+  -->
+  <link href="css/custom.css" rel="stylesheet">
+  
+  
+  <!-- Bootstrap core CSS -->
+  <link href="http://basicincomeproject.org/wp-content/plugins/wp-banner-plugin/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="http://basicincomeproject.org/wp-content/plugins/wp-banner-plugin/css/jumbotron-narrow.css" rel="stylesheet">
+  <link href="http://basicincomeproject.org/wp-content/plugins/wp-banner-plugin/css/style.css" rel="stylesheet">
+
+  <!-- JQuery -->
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+
+  <!-- Javascript Color Picker -->
+  <!--<script type="text/javascript" src="http://basicincomeproject.org/wp-content/plugins/wp-banner-plugin/js/jscolor/jscolor.js"></script>-->
+  <script src="http://basicincomeproject.org/wp-content/plugins/wp-banner-plugin/js/piklor.js"></script>
+  <script src="http://basicincomeproject.org/wp-content/plugins/wp-banner-plugin/js/handlers.js"></script>
+
+  <!-- Bootstrap JS -->
+  <script src="http://www.jensbits.com/demos/fb/js/bootstrap.min.js"></script>
+
+  <!-- Javascript Convert -->
+  <!--<script src="http://basicincomeproject.org/wp-content/plugins/wp-banner-plugin/js/canvas2image.js"></script>-->
+
+  <!-- Facebook JS -->
+  <script type="text/javascript" src="js/fbscripts.js"></script>
+	
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="header clearfix">
+      <nav>
+        <ul class="nav nav-pills pull-right">
+          <li role="presentation" class="active"><a href="http://basicincomeproject.org">Back to Website</a></li>
+        </ul>
+      </nav>
+      <h3 class="text-muted">Basic Income Project</h3>
+    </div>
+    <!--- end header div -->
+
+    <div class="jumbotron">
+
+      <h1>Basic Income Banner Campaign</h1>
+      <br/>
+
+      <div>
+
+        <p>This app gets your Facebook profile image and add the basic income hashtag banner. The first step we need you to log into Facebook in order to get your profile image by clicking the button below.</p>
+
+        <!-- When button is clicked verify and get users FB profile image. -->
+        <button type="button" class="btn btn-primary btn-fb">Login with Facebook</button>
+
+      </div>
+      <br/>
+	  <!-- Canvas for FB profile -->
+	  <div id="cnvsdiv" class="canvas__container">
+		<canvas id="cnvs" class="canvas__canvas"></canvas>
+		<img src="" id="mirror" class="canvas__mirror" />
+	  </div>
+	  
+      <!-- Color Picker -->
+	  <div class="picker-wrapper">
+		  <button class="btn btn-default">Select color</button><br/>
+		  <div class="color-picker">
+		  </div>
+	  </div><br/>
+
+        <p><a class="btn btn-lg btn-success" role="button" href="#">Submit to Facebook</a></p><br/>
+		<p>When the submit to Facebook button won't work. You may have to copy/save image and manually upload it to your Facebook profile. </p><br>
+		<p><a href="#" class="button" id="btn-download" download="basic-income-hashtag-banner.png">Download</a></p>
+      </div><br/>
+
+    </div>
+    <!--- end container -->
+
+    <div id="fb-root"></div>
+
+	<!-- Javascript Action Scripts -->
+	<script src="http://basicincomeproject.org/wp-content/plugins/wp-banner-plugin/js/bannerscripts.js">
+	  window.onload = init();
+
+(function() {
+  $('.btn-fb').on('click', function(e) {
+	e.preventDefault();
+	facebookLogin();
+  });
+})();
+	  
+	</script>
+
+  </div>
+</body>
+
+</html>
