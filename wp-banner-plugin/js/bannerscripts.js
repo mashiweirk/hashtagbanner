@@ -25,8 +25,8 @@ cnvs.height = mirror.height = parent.innerHeight;
 col = '#34495e'	
 
 // Default Photo and Banner
-var img1 = loadImage('http://basicincomeproject.org/wp-content/plugins/wp-banner-plugin/images/fb-bip-logo-large.png', updateInfo);
-var img2 = loadImage('http://basicincomeproject.org/wp-content/plugins/wp-banner-plugin/images/hashtag-basicincome-white.png', updateInfo);
+var img1 = loadImage('images/fb-bip-logo-large.png', updateInfo);
+var img2 = loadImage('images/hashtag-basicincome-white.png', updateInfo);
 
 var button = document.getElementById('btn-download');
 button.addEventListener('click', function (e) {
