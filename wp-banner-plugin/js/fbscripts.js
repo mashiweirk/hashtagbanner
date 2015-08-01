@@ -1,3 +1,5 @@
+var myFBCanvasID = 0;
+var access_token = "";
 
 window.fbAsyncInit = function () {
  
@@ -19,7 +21,7 @@ function facebookLogin() {
             console.log("Facebook connected.");
             // connected ... do we have needed permissions?
             FB.login(function(response) {
-
+                access_token = FB.getAuthResponse()['accessToken'];
                 getProfileImage();
             }, {scope: 'publish_actions,user_photos'});
         
@@ -28,6 +30,7 @@ function facebookLogin() {
             //app not_authorized
             FB.login(function(response) {
                 if (response && response.status === 'connected') {
+                    access_token = FB.getAuthResponse()['accessToken'];
                     getProfileImage();
                 }
             }, {scope: 'publish_actions,user_photos'});
@@ -37,6 +40,7 @@ function facebookLogin() {
             // not_logged_in to Facebook
             FB.login(function(response) {
                 if (response && response.status === 'connected') {
+                    access_token = FB.getAuthResponse()['accessToken'];
                     getProfileImage();
                 }
             }, {scope: 'publish_actions,user_photos'});
@@ -45,24 +49,57 @@ function facebookLogin() {
 
 }
 
-function uploadPhotoToFacebook() {    
-    FB.api(
-        "/me/photos",
-        "POST",
-        {
-            "url": "http://basicincomeproject.org/wp-content/plugins/wp-banner-plugin/images/fb-bip-logo-large.png"
-        },
-        function (response) {
-            if (response && !response.error) {
+function uploadPhotoToFacebook() {
+    var cnvs = document.getElementById('cnvs'), ctx = cnvs.getContext('2d'), mirror = document.getElementById('mirror');
+    var mimeType = 'image/png';
+    var imageData = cnvs.toDataURL(mimeType);
 
-                window.open("http://www.facebook.com/photo.php?fbid=" + response.id + "&makeprofile=1", "_blank");
-            } else {
-                // handle error
-                console.log("there was an error:\n %o", response);
-            }
+    var blob;
+    try {
+        var byteString = atob(imageData.split(',')[1]);
+        var ab = new ArrayBuffer(byteString.length);
+        var ia = new Uint8Array(ab);
+        for (var i = 0; i < byteString.length; i++) {
+            ia[i] = byteString.charCodeAt(i);
         }
-    );
+
+        blob = new Blob([ab], {type: 'image/png'});
+
+    } catch (e) {
+        console.log(e);
+    }
+
+    var fd = new FormData();
+
+    fd.append("access_token", access_token);
+    fd.append("source", blob);
+
+    try{
+       $.ajax({
+            url:"https://graph.facebook.com/" + myFBCanvasID + "/photos?access_token=" + access_token,
+            type:"POST",
+            data:fd,
+            processData:false,
+            contentType:false,
+            cache:false,
+            success:function(data){
+                console.log("success " + data);
+                //TODO: open this as a popup window... on desktops, this will create an ADDITIONAL popup that offers to set the photo as the profile photo
+                window.open("http://www.facebook.com/photo.php?fbid=" + data.id + "&makeprofile=1", "_blank");
+            },
+            error:function(shr,status,data){
+                console.log("error " + data + " Status " + shr.status);
+            },
+            complete:function(){
+                console.log("Ajax Complete");
+            }
+        });
+
+    } catch(e){
+        console.log(e);
+    }    
 }
+
 function getProfileImage() {
             var $photo = $('.photo'),
                 $btn = $('.btn-fb'),
@@ -72,7 +109,7 @@ function getProfileImage() {
             $btn.text('Uploading...');     
             
             FB.api('/me', function(response){
-                var myFBCanvasID = response.id;
+                myFBCanvasID = response.id;
                 img1 = loadImage('http://graph.facebook.com/' + myFBCanvasID + '/picture?width=' + cnvs.width + '&height=' + cnvs.height, updateInfo);
                 $btn.addClass('hide');
             });
