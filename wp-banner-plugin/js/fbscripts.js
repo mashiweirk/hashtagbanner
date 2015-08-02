@@ -4,7 +4,7 @@ var access_token = "";
 window.fbAsyncInit = function () {
  
     FB.init({
-        appId: '1632306423658276', // App ID (old: 675793779103244)
+        appId: '675793779103244', // App ID
         channelUrl: 'http://basicincomeproject.org/fb/channel.html', // Channel File
         status: true, // check login status
         cookie: true, // enable cookies to allow the server to access the session
