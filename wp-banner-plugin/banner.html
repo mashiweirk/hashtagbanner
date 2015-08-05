@@ -22,7 +22,7 @@
   
   <!-- Bootstrap core CSS -->
   <link href="http://basicincomeproject.org/wp-content/plugins/wp-banner-plugin/css/bootstrap.min.css" rel="stylesheet">
-
+  
   <!-- Custom styles for this template -->
   <link href="http://basicincomeproject.org/wp-content/plugins/wp-banner-plugin/css/jumbotron-narrow.css" rel="stylesheet">
   <link href="http://basicincomeproject.org/wp-content/plugins/wp-banner-plugin/css/style.css" rel="stylesheet">
@@ -52,7 +52,7 @@
     <div class="header clearfix">
       <nav>
         <ul class="nav nav-pills pull-right">
-          <li role="presentation" class="active"><a href="http://basicincomeproject.org">Back to Website</a></li>
+          <li role="presentation" class="active"><a href="http://basicincomeproject.org/">Back to Website</a></li>
         </ul>
       </nav>
       <h3 class="text-muted">Basic Income Project</h3>
@@ -61,12 +61,12 @@
 
     <div class="jumbotron">
 
-      <h1>Basic Income Banner Campaign</h1>
+      <h1>Basic Income Hashtag Banner Campaign</h1>
       <br/>
 
       <div>
 
-        <p>This app gets your Facebook profile image and adds the basic income hashtag banner. You will need to select the login with Facebook button in order to get your Facebook profile image.</p>
+        <p>This app adds the basic income hashtag banner to your Facebook profile photo. Login with Facebook to get your profile image.</p>
 
         <!-- When button is clicked verify and get users FB profile image. -->
         <button type="button" class="btn btn-primary btn-fb">Login with Facebook</button>
@@ -81,14 +81,14 @@
 	  
       <!-- Color Picker -->
 	  <div class="picker-wrapper">
-		  <button class="btn btn-default">Select color</button><br/>
+		  <button class="btn btn-default">Select a Banner Color</button><br/>
 		  <div class="color-picker">
 		  </div>
 	  </div><br/>
-
-        <p><a class="btn btn-lg btn-success" role="button" onClick="uploadPhotoToFacebook()">Submit to Facebook</a></p><br/>
-		<p>When the submit to Facebook button won't work. You may have to copy/save image and manually upload it to your Facebook profile.</p><br>
-		<p><a href="#" class="button" id="btn-download" download="basic-income-hashtag-banner.png">Download</a></p>
+		<div id="donate"></div>
+        <p><a id="btn-upload" class="btn btn-lg btn-success disabled" role="button" onClick="uploadPhotoToFacebook()">Submit to Facebook</a></p><br/>
+		<p>We provided a download image button below just in case the submit to Facebook doesn't work. Once you download the image you will need to manually upload it to your Facebook profile.</p><br>
+		<p><a href="#" class="btn btn-lg btn-download" id="btn-download" download="basic-income-hashtag-banner.png">Download</a></p>
       </div><br/>
 
     </div>
@@ -104,6 +104,7 @@
   $('.btn-fb').on('click', function(e) {
 	e.preventDefault();
 	facebookLogin();
+	
   });
 })();
 	  
