@@ -25,3 +25,14 @@
   width: 100%;
   z-index: 1;
 }
+.btn-donate {
+    color: #4E4E4E;
+    background-color: #F0D84E;
+    border-color: #EECC36;
+}
+
+@media (max-width: 360px) {
+  .btn-picker {
+    white-space: normal;
+  }
+]
