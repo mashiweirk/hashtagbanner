@@ -1,2 +1,2 @@
 # hashtagbanner
-Adds a hatag banner to your fb profile.
+Adds a hashtag banner to your fb profile.
