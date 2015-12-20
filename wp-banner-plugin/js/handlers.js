@@ -20,6 +20,15 @@ window.addEventListener("load", function () {
           , "#c0392b"
           , "#bdc3c7"
           , "#7f8c8d"
+          , "#ecf0f1"
+          , "#C0C0C0"
+          , "#808080"
+          , "#000000"
+          , "#25171c"
+          , "#c4c1c4"
+          , "#cfc5b7"
+          , "#e1e9e1"
+          , "#ffffff"
         ], {
             open: ".picker-wrapper .btn"
         })
