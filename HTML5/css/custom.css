@@ -1,4 +1,9 @@
-@import url(https://fonts.googleapis.com/css?family=Inconsolata:700);
+@font-face {
+  font-family: 'Inconsolata';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Inconsolata Bold'), local('Inconsolata-Bold'), url(http://hashtag.basicincomeproject.org/fonts/AIed271kqQlcIRSOnQH0yTqR_3kx9_hJXbbyU8S6IN0.woff) format('woff');
+}
 
 .title {
     font-family: 'Inconsolata', monospace;
@@ -77,4 +82,7 @@ footer a:hover {
 .color-picker > div:hover {
     opacity: 1;
 }
-
+.dropdown {
+    position: relative;
+    display: inline-block;
+}

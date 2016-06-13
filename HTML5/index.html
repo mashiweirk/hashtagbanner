@@ -17,7 +17,7 @@
   <meta property="fb:app_id" content="675793779103244" />
 
 
-  <link rel="icon" href="http://hashtag.basicincomeproject.org/images/favicon.ico">
+  <link rel="icon" href="images/favicon.ico">
 
   <title>Basic Income Banner</title>
 
@@ -26,106 +26,147 @@
   <link href="css/material-wfont.min.css" rel="stylesheet">
   <link href="css/ripples.min.css" rel="stylesheet">
   -->
-  <link href="css/custom.css" rel="stylesheet">
   
-  
-  <!-- Bootstrap core CSS -->
-  <link href="http://hashtag.basicincomeproject.org/css/bootstrap.min.css" rel="stylesheet">
-  
+  <!-- Bootstrap CSS -->
+  <link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="bootstrap-social-gh-pages/bootstrap-social.css" rel="stylesheet">
+	
+	
   <!-- Custom styles for this template -->
-  <link href="http://hashtag.basicincomeproject.org/css/jumbotron-narrow.css" rel="stylesheet">
-  <link href="http://hashtag.basicincomeproject.org/css/style.css" rel="stylesheet">
+  <!-- <link href="css/jumbotron-narrow.css" rel="stylesheet"> -->
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/custom.css" rel="stylesheet">
 
   <!-- JQuery -->
-  <script src="http://code.jquery.com/jquery-latest.js"></script>
-
+  <!-- <script src="http://code.jquery.com/jquery-latest.js"></script> -->
+	<script src="jquery/jquery-1.12.2.min.js"></script>
+	
   <!-- Javascript Color Picker -->
-  <!--<script type="text/javascript" src="http://hashtag.basicincomeproject.org/js/jscolor/jscolor.js"></script>-->
-  <script src="http://hashtag.basicincomeproject.org/js/piklor.js"></script>
-  <script src="http://hashtag.basicincomeproject.org/js/handlers.js"></script>
-
-  <!-- Bootstrap JS -->
-  <script src="http://www.jensbits.com/demos/fb/js/bootstrap.min.js"></script>
-
-  <!-- Javascript Convert -->
-  <!--<script src="http://hashtag.basicincomeproject.org/js/canvas2image.js"></script>-->
-
+  <script src="js/piklor.js"></script>
+  <script src="js/handlers.js"></script>
+	
+	<!-- Javascript Scripts -->
+	<script src="js/script.globals.js"></script>
+	
+	<!-- Temp links for production and host locally. -->
+	<!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	
   <!-- Facebook JS -->
-  <script type="text/javascript" src="js/fbscripts.js"></script>
-  
-  <!-- Counter -->
+  <!--<script type="text/javascript" src="js/script.fb.js"></script>-->
+	
+  <!-- Custom -->
   
   
 </head>
 
 <body>
-
+	<!--- container -->
   <div class="container">
+		
+		<!--- inside body header -->
     <div class="header clearfix">
       <nav>
         <ul class="nav nav-pills pull-right">
-          <li role="presentation" class="active"><a href="http://basicincomeproject.org/">Back to Website</a></li>
+          <li role="presentation" class="active"><a href="https://basicincomeproject.org/">Back to Website</a></li>
         </ul>
       </nav>
+			<!--- page title header -->
       <h3 class="text-muted">Basic Income Project</h3>
     </div>
-    <!--- end header div -->
-
-    <div class="jumbotron">
-
-      <h1>Basic Income Hashtag Banner Campaign</h1>
-      <br/>
-
-      <div>
-		<p>Add a Basic Income banner to your Facebook profile photo. Click the "Login with Facebook" button to download your profile picture, then customize the banner by selecting a banner color, and then click "Submit to Facebook" to upload your new profile photo to Facebook. Be sure to allow this app to post to your Facebook timeline, otherwise it won't work-this is the only time we will ever post to your timeline. Please note that this app works best on a desktop or laptop.</p>
-
-        <!-- When button is clicked verify and get users FB profile image. -->
-        <button type="button" class="btn btn-primary btn-fb">Login with Facebook</button>
-
-      </div>
-      <br/>
-	  <!-- Canvas for FB profile -->
-	  <div id="cnvsdiv" class="canvas__container">
-		<canvas id="cnvs" class="canvas__canvas"></canvas>
-		<img src="" id="mirror" class="canvas__mirror" />
-	  </div>
-	  
-      <!-- Color Picker -->
-	  <div class="picker-wrapper">
-		  <button class="btn btn-default .btn-picker">Select a Banner Color</button><br/>
-		  <div class="color-picker">
-		  </div>
-	  </div><br/>
-		<!--- Upload takes 5-8seconds, need improvements or progress-bar -->
-        <p><a id="btn-upload" class="btn btn-lg btn-success disabled" role="button" onClick="uploadPhotoToFacebook()">Submit to Facebook</a></p><br/>
-    <div id="donate"></div>
-		<p>In case the Facebook option doesn't work, click on the "Download" link below. Once you download the banner, you will need to manually add it to your Facebook profile photo and then upload the composite image to your Facebook profile.</p><br>
-		<!--- User need to be focused to Donate area but know their Photo has been uploaded and applied -->
-		<p><a href="#" class="btn btn-lg btn-download" id="btn-download" download="basic-income-hashtag-banner.png">Download</a></p>
+		<!--- end body header -->
 		
+		<!--- jumbotron main body -->
+    <div class="jumbotron">
+			<!--- title header -->
+			<h2>Basic Income Banner</h2><br/>
+			
+			<!--- select campaign or build-->
+			<div class="dropdown">
+				<button class="btn btn-primary btn-block dropdown-toggle" type="button" data-toggle="dropdown">Select a Campaign
+				<span class="caret"></span></button>
+				<ul id="navigator" class="dropdown-menu">
+					<li>#basicincome</li>
+					<li>Swiss</li>
+				</ul>
+				<br/>
+				<!--
+				<button type="button" class="btn btn-primary btn-block">Build a Campaign</button>
+				<br/>-->
+			</div>
+			<!-- end campaign select -->
+			
+			<!-- campaign area -->
+      <div id="DynamicContent" class="campaign">
+					<!-- campaign content header -->
+					
+					<!-- end campaign content header -->
+					
+			</div>
+			
+			<!-- get photo area -->
+			<div>
+				<br/>
+				<div id="selectFB" class="dropdown">
+					<p>Pick a social</p><br/>
+					<div>
+					<button type="button" class="btn btn-primary btn-block btn-social btn-twitter">Twitter</button>
+					<button type="button" class="btn btn-primary btn-block btn-social btn-facebook">Facebook</button>
+					</div>
+				</div><br/>
+        
+				<!-- upload photo option -->
+					<div id="files">
+					<br/>
+					<p>Upload file(s)</p>
+					<p><input type="file" name="uploaded_file[]" /></p>
+					</div>
+					<p><input type="button" value="Add File" onclick="addFile();" /></p>
+      </div>
+			<!-- end get photo area -->
+      <br/>
+			
+			<!-- canvas area -->
+			<div id="profileArea" class="canvas__container">
+				<!--<canvas id='c' style = 'position: absolute; left: 0px; top: 0px;' ></canvas>-->
+				<canvas id="profileCanavas" class="canvas__canvas"></canvas>
+				<img src="" id="profileMirror" class="canvas__mirror" />
+			</div>
+			<!-- end canvas area -->
+			
+			<!-- tool area -->
+			<div id=toolArea">
+				<!-- color picker -->
+				<div class="picker-wrapper">
+					<button class="btn btn-default .btn-picker">Select a Banner Color</button><br/>
+					<div class="color-picker"></div>
+				</div><br/>
+				
+				<!--- Upload takes 5-8seconds, need improvements or progress-bar -->
+				<p><a id="btn-upload" class="btn btn-lg btn-success disabled" role="button" onClick="uploadPhotoToFacebook();">Submit to Facebook</a></p><br/>
+				<div id="donate"></div>
+				<h3>Manually Download Option</h3><br>
+				<!--- User need to be focused to Donate area but know their Photo has been uploaded and applied -->
+				<!--<p><a href="#" class="btn btn-lg btn-download" id="btn-download" download="basic-income-hashtag-banner.png">Download</a></p>-->
+				<p><input type="button" value="Download Photo" onclick="addFile();" /></p>
 
-      </div><br/>
-
+			</div>
+			<!-- end tool erea -->
+			
     </div>
-    <!--- end container -->
-
+    <!-- end jumbotron container -->
     <div id="fb-root"></div>
-
-	<!-- Javascript Action Scripts -->
-	<script src="js/bannerscripts.js">
-	  window.onload = init();
-
-(function() {
-  $('.btn-fb').on('click', function(e) {
-	e.preventDefault();
-	facebookLogin();
 	
-  });
-})();
-	  
-	</script>
+	</div>
+	<!--- end container -->
+	
+	<!-- javascript scripts -->
+	<script type="text/javascript" src="js/script.globals.js"></script>
+	<script type="text/javascript" src="js/script.listeners.js"></script>
+	<script type="text/javascript" src="js/script.fb.js"></script>
+	<script type="text/javascript" src="js/script.onload.js"></script>
 
-  </div>
 </body>
 
 </html>
