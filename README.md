@@ -12,5 +12,5 @@ Here is a list of items to work on. Feel free to submit your own recommondations
 
 > - Edit this markdown readme for better instructions.
 > - Add the ability to manually upload and image, however you will only have the option to download, so remove social logins.
-> - Add twitter api itegrations
-> - Add localizations
+> - Add twitter api integration
+> - Add localization
