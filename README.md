@@ -5,6 +5,8 @@ Free to contribute
 
 Items todo:
 
-Add ability to manually upload image.
-Add twitter api.
-Add localizations.
+make proper markdown readme
+Add build your own camapaing and save
+Add ability to manually upload image
+Add twitter api
+Add localizations
